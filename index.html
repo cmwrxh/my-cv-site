@@ -2,74 +2,91 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Charles Mwaura | CV</title>
-
   <style>
-    body {
+    html, body {
       margin: 0;
+      height: 100%;
       background: #0f1115;
       font-family: Arial, sans-serif;
-      color: #ffffff;
+      color: #fff;
     }
 
     .header {
-      padding: 16px;
-      text-align: center;
-      background: #171a21;
-      font-size: 18px;
-      font-weight: bold;
+      height: 56px;
       display: flex;
-      justify-content: center;
       align-items: center;
+      justify-content: center;
       gap: 12px;
+      padding: 0 16px;
+      background: #171a21;
+      box-sizing: border-box;
+      font-size: 18px;
+      font-weight: 700;
     }
 
     .header a {
-      color: #ccc;
+      color: #d7d7d7;
       text-decoration: none;
       font-size: 14px;
-      border: 1px solid #444;
+      font-weight: 600;
+      border: 1px solid #3a3f4b;
       padding: 6px 10px;
-      border-radius: 6px;
+      border-radius: 8px;
     }
 
     .header a:hover {
-      background: #222;
+      background: #222734;
     }
 
-    iframe {
+    .viewer {
       width: 100%;
-      height: calc(100vh - 60px);
+      height: calc(100vh - 56px);
       border: none;
+      display: block;
     }
 
     .fallback {
+      display: none;
+      padding: 40px 20px;
       text-align: center;
-      margin-top: 40px;
-      color: #aaa;
+      color: #c7c7c7;
+    }
+
+    .fallback a {
+      color: #fff;
     }
   </style>
 </head>
-
 <body>
-
   <div class="header">
-    Charles Mwaura — CV
-    <a href="/Charles_Mwaura_CV.pdf" target="_blank">Download</a>
+    <span>Charles Mwaura — CV</span>
+    <a href="/Charles_Mwaura_CV.pdf" target="_blank" rel="noopener noreferrer">Open PDF</a>
   </div>
 
-  <iframe 
-    src="/Charles_Mwaura_CV.pdf"
-    onerror="document.getElementById('fallback').style.display='block';">
+  <iframe
+    class="viewer"
+    src="/Charles_Mwaura_CV.pdf#view=FitH"
+    title="Charles Mwaura CV">
   </iframe>
 
-  <div id="fallback" class="fallback" style="display:none;">
-    <p>Unable to display CV preview.</p>
-    <p>
-      <a href="/Charles_Mwaura_CV.pdf" target="_blank">Click here to open CV</a>
-    </p>
+  <div class="fallback" id="fallback">
+    <p>Preview not available on this device.</p>
+    <p><a href="/Charles_Mwaura_CV.pdf" target="_blank" rel="noopener noreferrer">Open the PDF directly</a></p>
   </div>
 
+  <script>
+    setTimeout(() => {
+      const iframe = document.querySelector(".viewer");
+      try {
+        if (!iframe || iframe.contentWindow?.location?.href === "about:blank") {
+          document.getElementById("fallback").style.display = "block";
+        }
+      } catch (e) {
+        // Cross-origin/frame restrictions can happen; keep silent.
+      }
+    }, 2000);
+  </script>
 </body>
 </html>
