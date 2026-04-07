@@ -3,7 +3,7 @@
 Minimal, lightning-fast personal CV site built with care and deployed on Vercel.
 
 🔗 **Live Site**: [https://my-cv-site.vercel.app](https://my-cv-site.vercel.app)  
-📄 **Full Resume (PDF)**: [Charles_Mwaura_FAANG_Elite_Merged_CV.pdf](https://my-cv-site.vercel.app/Charles_Mwaura_FAANG_Elite_Merged_CV.pdf)
+📄 **Full Resume (PDF)**: [Charles_Mwaura_CV.pdf](https://my-cv-site.vercel.app/Charles_Mwaura_CV.pdf)
 
 ---
 
@@ -59,8 +59,8 @@ I enjoy blending low-level performance (Rust/Go) with productive high-level deve
 This repo powers my personal CV website — a clean, always-available landing page for recruiters, collaborators, and anyone curious about my work.
 
 - **Version control**: GitHub
-- **Hosting**: Vercel (blazing fast static deployment)
-- **Assets**: Served from the `/public` directory
+- **Hosting**: Vercel
+- **Assets**: Served as static files
 
 It's intentionally minimal so the focus stays on the content and the live site.
 
