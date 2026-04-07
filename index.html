@@ -10,21 +10,44 @@
       margin: 0;
       background: #0f1115;
       font-family: Arial, sans-serif;
+      color: #ffffff;
     }
 
     .header {
       padding: 16px;
       text-align: center;
       background: #171a21;
-      color: white;
       font-size: 18px;
       font-weight: bold;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .header a {
+      color: #ccc;
+      text-decoration: none;
+      font-size: 14px;
+      border: 1px solid #444;
+      padding: 6px 10px;
+      border-radius: 6px;
+    }
+
+    .header a:hover {
+      background: #222;
     }
 
     iframe {
       width: 100%;
       height: calc(100vh - 60px);
       border: none;
+    }
+
+    .fallback {
+      text-align: center;
+      margin-top: 40px;
+      color: #aaa;
     }
   </style>
 </head>
@@ -33,9 +56,20 @@
 
   <div class="header">
     Charles Mwaura — CV
+    <a href="/Charles_Mwaura_CV.pdf" target="_blank">Download</a>
   </div>
 
-  <iframe src="/Charles_Mwaura_CV.pdf"></iframe>
+  <iframe 
+    src="/Charles_Mwaura_CV.pdf"
+    onerror="document.getElementById('fallback').style.display='block';">
+  </iframe>
+
+  <div id="fallback" class="fallback" style="display:none;">
+    <p>Unable to display CV preview.</p>
+    <p>
+      <a href="/Charles_Mwaura_CV.pdf" target="_blank">Click here to open CV</a>
+    </p>
+  </div>
 
 </body>
 </html>
